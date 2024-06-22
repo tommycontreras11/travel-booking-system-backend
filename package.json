@@ -1,0 +1,35 @@
+{
+  "name": "travel-booking-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc -p tsconfig.json",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d ./src/database/connection/index.ts",
+    "schema:drop": "npm run typeorm schema:drop",
+    "m:generate": "npm run typeorm migration:generate ./src/database/migrations/%npm_config_name%",
+    "m:run": "npm run typeorm migration:run",
+    "m:revert": "npm run typeorm migration:revert",
+    "m:fresh": "npm run typeorm schema:drop && npm run typeorm migration:run",
+    "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n ./src/config/ormconfig.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0"
+  }
+}

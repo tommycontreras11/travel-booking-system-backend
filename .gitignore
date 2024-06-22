@@ -1,0 +1,12 @@
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+build
+dist
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# dotenv environment variable files
+.env
+.env.*

@@ -1,0 +1,13 @@
+{
+	"watch": [
+		"src",
+		".env"
+	],
+	"ext": "ts,js,json",
+	"ignore": [
+		"node_modules",
+		"build"
+	],
+	"exec": "npx ts-node ./src/index.ts",
+	"restartable": "rs"
+}
