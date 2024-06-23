@@ -108,6 +108,6 @@
   },
   "include": ["src", "global.d.ts", "index.ts"],
 	"exclude": ["node_modules/**"],
-	// "files": ["./src/types/index.d.ts", "./src/types/express.d.ts"],
+	"files": ["./src/types/index.d.ts", "./src/types/express.d.ts"],
 	"compileOnSave": false
 }

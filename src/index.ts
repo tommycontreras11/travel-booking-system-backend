@@ -1,8 +1,16 @@
-import app from "./app"
+import logger from './libs/logger.lib'
+import bootstrap from './bootstrap'
+import { createServer, Server } from 'http'
+import app from './app'
+import { serverConfig } from './config'
 
-async function main() {
-    app.listen(process.env.PORT || 3000)
-    console.log(`Server running on port ${process.env.PORT || 3000} 🚀`)
-}
+const server: Server = createServer(app)
+const { port } = serverConfig
 
-main()
+bootstrap(server, () => {
+	server.listen(port, async () => {
+		logger.info(`🚀 Server running at port ${port}`)
+	})
+}).catch((error) => {
+	console.error({ error })
+})

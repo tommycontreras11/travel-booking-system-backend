@@ -1,14 +1,25 @@
+global.rootDir = __dirname
+
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
-import cors from 'cors'
-import cookieParser from 'cookie-parser'
 
 const app = express()
 
-app.use(morgan('dev'))
-app.use(cors())
-app.use(express.json())
 app.use(cookieParser())
 
+app.use(
+	cors({
+		origin: (_, next) => next(null, true),
+		credentials: true,
+	})
+)
 
-export default app;
+app.use(express.json())
+
+app.use(morgan('dev'))
+
+//app.use(router)
+
+export default app
