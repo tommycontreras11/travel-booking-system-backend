@@ -55,7 +55,7 @@ class Cookie {
         );
 
         return {
-            token: `${token.encrypt()}`,
+            token: `${token}`,
         }
     }
 

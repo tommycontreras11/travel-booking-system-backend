@@ -1,0 +1,1 @@
+export const X_USER_MEMORY_KEY = 'x-user-memory-key';

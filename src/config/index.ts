@@ -17,6 +17,13 @@ export const cookieConfig = {
 	}
 }
 
+export const securityConfig = {
+	encryption: {
+		key: process.env.ENCRYPTION_KEY as string,
+		algorithm: process.env.ENCRYPTION_ALGORITHM as string
+	}
+}
+
 serverConfig.appUrl = process.env.APP_URL as string
 serverConfig.isDev = serverConfig.appUrl.includes("localhost")
 

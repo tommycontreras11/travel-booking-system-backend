@@ -1,5 +1,6 @@
 import { Exclude } from "class-transformer";
 import {
+  BaseEntity as Base,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -8,7 +9,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 
-export class BaseEntity {
+export class BaseEntity extends Base {
   @PrimaryGeneratedColumn()
   id: number;
 

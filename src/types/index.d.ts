@@ -1,3 +1,6 @@
+import Encryption from './../utils/encryption'
+import bcryptjs from 'bcryptjs'
+
 declare global {
 
 	// eslint-disable-next-line no-var
@@ -13,22 +16,34 @@ declare global {
 	}
 
 	interface String {
-		toSlug(): string
-		toEnum(): string
-		slugToString(): string
-		btoa(): string
-		atob(): string
 		encryptPassword(salt?: number): string
 		encrypt(): string | null
 		decrypt(): string | null
 		json<T = object>(): T | undefined
-		/**
-		 * @returns {string} Capitalized string
-		 * @example 'example'.capitalize() => 'Example'
-		 */
-		capitalize(): string
 		onlyNumber(): string
 	}
 }
+
+String.prototype.encryptPassword = function (salt = 10): string {
+	return bcryptjs.hashSync(this.toString(), salt)
+}
+
+String.prototype.encrypt = function (): string | null {
+	return Encryption.instance.encrypt(this.toString())
+}
+
+String.prototype.decrypt = function (): string | null {
+	return Encryption.instance.decrypt(this.toString())
+}
+
+String.prototype.json = function <T>(): T | undefined {
+	try {
+		return JSON.parse(this as string)
+	} catch (error) {
+		// console.error('String.prototype.json() error: ', error)
+		return undefined
+	}
+}
+
 
 export { }
