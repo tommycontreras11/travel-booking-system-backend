@@ -17,6 +17,9 @@ export class ReservableEntity extends BaseEntity {
 
     @Column('text')
     description: string;
+
+    @Column({ enum: ReservableTypeEnum, type: 'enum' })
+    type: ReservableType;
   
     @Column()
     location: string;
