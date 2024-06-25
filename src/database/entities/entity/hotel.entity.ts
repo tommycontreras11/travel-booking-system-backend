@@ -1,6 +1,7 @@
-import { Column, Entity, OneToMany } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { BaseEntity } from "../base/base.entity";
 import { ReservationEntity } from "./reservation.entity";
+import { CountryEntity } from "./country.entity";
 
 @Entity({ name: 'hotels' })
 export class HotelEntity extends BaseEntity {
@@ -14,7 +15,7 @@ export class HotelEntity extends BaseEntity {
     city: string;
   
     @Column()
-    country: string;
+    countryId: number;
   
     @Column()
     stars: number;
@@ -22,6 +23,13 @@ export class HotelEntity extends BaseEntity {
     @Column('decimal')
     pricePerNight: number;
 
+    @Column()
+    available_slots: number;  
+
+    @ManyToOne(() => CountryEntity, (country) => country.hotels)
+    @JoinColumn({ name: 'countryId', referencedColumnName: 'id' })
+    country: CountryEntity;
+
     @OneToMany(() => ReservationEntity, (reservation) => reservation.hotel)
-    reservations: ReservationEntity;
+    reservations: ReservationEntity[];
 }

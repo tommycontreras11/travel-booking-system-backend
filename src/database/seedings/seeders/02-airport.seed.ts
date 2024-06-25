@@ -16,7 +16,7 @@ export class AirportSeeder implements Seeder {
             where: { value: airport.country },
           }).catch((e) =>
             console.error(
-              "Validation Error at CountryEntity.findOne AirportSeeder",
+              "Validation Error at countryRepository.findOne AirportSeeder",
               e
             )
           );
@@ -29,7 +29,7 @@ export class AirportSeeder implements Seeder {
                 },
               }).catch((e) =>
                 console.error(
-                  "Validation Error at AirportEntity.findOne AirportSeeder",
+                  "Validation Error at airportRepository.findOne AirportSeeder",
                   e
                 )
               );

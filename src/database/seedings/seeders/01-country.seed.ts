@@ -6,21 +6,24 @@ import { countryData } from '../data/country'
 export class CountrySeeder implements Seeder {
     async run(_factory: Factory, dataSource: DataSource): Promise<void> {
         try {
-            const repository = dataSource.getRepository(CountryEntity)
+            const countryRepository = dataSource.getRepository(CountryEntity)
 
             await Promise.all(
                 countryData.map(async (country) => {
-                    const exists = await repository
+                    const exists = await countryRepository
                         .findOne({
                             where: {
                                 value: country.value
                             }
                         })
                         .catch((e) =>
-                            console.error('Validation Error at CountryEntity.findOne CountrySeeder', e)
+                            console.error(
+                                "Validation Error at countryRepository.findOne CountrySeeder",
+                                e
+                              )
                         )
                     if (exists) return
-                    await repository.insert(country)
+                    await countryRepository.insert(country)
                 })
             )
         } catch (error) {
