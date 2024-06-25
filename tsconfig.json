@@ -110,5 +110,4 @@
 	  "exclude": ["node_modules/**"],
 	  "files": ["./src/types/index.d.ts", "./src/types/express.d.ts"],
 	  "compileOnSave": false
-  }
-  
+  }  

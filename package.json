@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d ./src/database/connections/index.ts",
@@ -34,25 +32,19 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "7.13.1",
-    "@typescript-eslint/parser": "7.13.1",
     "bcrypt": "5.1.1",
     "bcryptjs": "2.4.3",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
-    "config": "3.3.11",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "16.4.5",
-    "eslint": "9.5.0",
-    "eslint-config-prettier": "9.1.0",
     "jsonwebtoken": "9.0.2",
     "morgan": "^1.10.0",
     "mysql2": "3.10.1",
     "reflect-metadata": "0.2.2",
     "tsconfig-paths": "4.2.0",
     "typeorm": "0.3.20",
-    "typeorm-seeding": "1.6.1",
-    "winston": "3.13.0"
+    "typeorm-seeding": "1.6.1"
   }
 }
