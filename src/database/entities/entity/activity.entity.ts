@@ -1,5 +1,6 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToMany } from "typeorm";
 import { BaseEntity } from "../base/base.entity";
+import { ReservationEntity } from "./reservation.entity";
 
 @Entity({ name: 'activities' })
 export class ActivityEntity extends BaseEntity {
@@ -17,4 +18,7 @@ export class ActivityEntity extends BaseEntity {
   
     @Column()
     available_slots: number;  
+
+    @OneToMany(() => ReservationEntity, (reservation) => reservation.activity)
+    reservations: ReservationEntity;
 }

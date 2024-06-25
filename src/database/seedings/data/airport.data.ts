@@ -1,5 +1,3 @@
-import { AirportEntity } from "database/entities/entity/airport.entity"
-
 const airports = [
     {
         country: "Afganistán",
