@@ -17,13 +17,10 @@ export type ReservationType = `${ReservationStatusEnum}`
 @Entity({ name: 'reservations' })
 export class ReservationEntity extends BaseEntity {
     @Column()
-    reservation_date: Date;
+    reservationDate: Date;
   
     @Column({ type: 'enum', enum: ReservationStatusEnum })
     status: ReservationType;
-  
-    @Column('decimal', { precision: 10, scale: 2 })
-    total_price: number;
 
     @Column({ nullable: true })
     activityId: number;
