@@ -1,0 +1,13 @@
+import { Request, Response } from "express";
+import { createPaymentService } from "./../../services/payment/create.service";
+import { statusCode } from "../../utils/statusCode.util";
+
+export const createPaymentController = async (req: Request, res: Response) => {
+  createPaymentService(req.body)
+    .then((data) => res.json({ message: data }))
+    .catch((e) => {
+      return res
+        .status(e.status ?? statusCode.INTERNAL_SERVER_ERROR)
+        .json({ message: e.message });
+    });
+};

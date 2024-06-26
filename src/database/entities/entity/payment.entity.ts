@@ -15,16 +15,10 @@ export class PaymentEntity extends BaseEntity {
     amount: number;
   
     @Column()
-    payment_method: string;
-  
-    @Column()
-    payment_date: Date;
-  
-    @Column()
-    status: string;
+    paymentMethod: string;
 
     @Column()
-    reservationId: string;
+    reservationId: number;
 
     @ManyToOne(() => ReservationEntity, (reservation) => reservation.payments)
     @JoinColumn({ name: 'reservationId', referencedColumnName: 'id' })
