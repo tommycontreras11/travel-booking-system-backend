@@ -1,5 +1,3 @@
-import { HotelEntity } from "database/entities/entity/hotel.entity";
-
 const hotels = [
     {
         name: "The Plaza",
@@ -8,7 +6,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 799.99,
-        available_slots: 10
+        availableSlot: 10
     },
     {
         name: "Ritz-Carlton",
@@ -17,7 +15,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 899.99,
-        available_slots: 11
+        availableSlot: 11
     },
     {
         name: "Four Seasons",
@@ -26,7 +24,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 699.99,
-        available_slots: 53
+        availableSlot: 53
     },
     {
         name: "The Langham",
@@ -35,7 +33,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 649.99,
-        available_slots: 40
+        availableSlot: 40
     },
     {
         name: "The Peninsula",
@@ -44,7 +42,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 749.99,
-        available_slots: 40
+        availableSlot: 40
     },
     {
         name: "Waldorf Astoria",
@@ -53,7 +51,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 999.99,
-        available_slots: 15
+        availableSlot: 15
     },
     {
         name: "Mandarin Oriental",
@@ -62,7 +60,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 879.99,
-        available_slots: 9
+        availableSlot: 9
     },
     {
         name: "Grand Floridian",
@@ -71,7 +69,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 599.99,
-        available_slots: 2
+        availableSlot: 2
     },
     {
         name: "The Rittenhouse",
@@ -80,7 +78,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 659.99,
-        available_slots: 5
+        availableSlot: 5
     },
     {
         name: "The Driskill",
@@ -89,7 +87,7 @@ const hotels = [
         country: "Estados Unidos",
         stars: 5,
         pricePerNight: 539.99,
-        available_slots: 10
+        availableSlot: 10
     }
 ];
 
@@ -100,5 +98,5 @@ export const hotelData = hotels.map((hotel) => ({
     country: hotel.country,
     stars: hotel.stars,
     pricePerNight: hotel.pricePerNight,
-    available_slots: hotel.available_slots
+    availableSlot: hotel.availableSlot
 }));

@@ -43,7 +43,7 @@ export class HotelSeeder implements Seeder {
               countryId: findCountry.id,
               stars: hotel.stars,
               pricePerNight: hotel.pricePerNight,
-              available_slots: hotel.available_slots,
+              availableSlot: hotel.availableSlot,
             })
             .catch((e) => console.error("Error saving new HotelSeeder", e));
           }

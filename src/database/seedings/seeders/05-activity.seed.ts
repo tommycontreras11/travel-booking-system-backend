@@ -29,7 +29,7 @@ export class ActivitySeeder implements Seeder {
               location: activity.location,
               price: activity.price,
               description: activity.description,
-              available_slots: activity.available_slots
+              availableSlot: activity.availableSlot
             })
             .catch((e) => console.error("Error saving new ActivitySeeder", e));
         })

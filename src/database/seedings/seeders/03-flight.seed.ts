@@ -31,7 +31,7 @@ export class FlightSeeder implements Seeder {
               departureDateTime: flight.departureDateTime,
               arrivalDateTime: flight.arrivalDateTime,
               price: flight.price,
-              available_slots: flight.available_slots,
+              availableSlot: flight.availableSlot,
             })
             .catch((e) => console.error("Error saving new FlightSeeder", e));
         })
