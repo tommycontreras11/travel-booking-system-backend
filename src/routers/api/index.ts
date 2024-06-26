@@ -5,6 +5,8 @@ import { unless } from './../../utils/unless.util'
 import authRouter from './auth'
 import userRouter from './user'
 import flightRouter from './flight'
+import reservationRouter from './reservation'
+import paymentRouter from './payment'
 
 const router = Router()
 
@@ -25,5 +27,7 @@ router.use(
 
 router.use('/users', userRouter);
 router.use('/flights', flightRouter);
+router.use('/reservations', reservationRouter);
+router.use('/payments', paymentRouter);
 
 export default router

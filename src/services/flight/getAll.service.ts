@@ -1,34 +1,39 @@
-import { getRepository, Between } from "typeorm";
-import { FlightEntity } from "./../../database/entities/entity/flight.entity"; // Ajusta la ruta según la estructura de tu proyecto
+import { FlightEntity } from "./../../database/entities/entity/flight.entity";
 import { statusCode } from "./../../utils/statusCode.util";
 
 export const getAllFlightService = async (options: {
-  arrivalDate?: Date,
-  departureDateTime?: Date,
-  minAvailableSlots?: number,
-  cache: boolean
+  arrivalDate?: Date;
+  departureDate?: Date;
+  quantity?: number;
 }) => {
-  const { arrivalDate, departureDateTime, minAvailableSlots, cache } = options;
+  const { arrivalDate, departureDate, quantity } = options;
 
   let queryBuilder = FlightEntity.createQueryBuilder("flight");
 
-  // if (arrivalDate) {
-  //   queryBuilder = queryBuilder.andWhere("flight.arrivalDateTime >= :arrivalDate", {
-  //     arrivalDate
-  //   });
-  // }
-
-  if (departureDateTime) {
-    queryBuilder = queryBuilder.andWhere("flight.departureDateTime <= :departureDateTime", {
-      departureDateTime
-    });
+  if (arrivalDate && departureDate && quantity) {
+    queryBuilder = queryBuilder
+      .where(
+        "flight.arrivalDateTime BETWEEN :startArrivalDate AND :endArrivalDate",
+        {
+          startArrivalDate: arrivalDate,
+          endArrivalDate: new Date(
+            departureDate.getTime() + 24 * 60 * 60 * 1000
+          ),
+        }
+      )
+      .andWhere(
+        "flight.departureDateTime BETWEEN :startDepartureDate AND :endDepartureDate",
+        {
+          startDepartureDate: arrivalDate,
+          endDepartureDate: new Date(
+            departureDate.getTime() + 24 * 60 * 60 * 1000
+          ),
+        }
+      )
+      .andWhere("flight.available_slots >= :quantity", {
+        quantity,
+      });
   }
-
-  // if (minAvailableSlots !== undefined) {
-  //   queryBuilder = queryBuilder.andWhere("flight.available_slots >= :minAvailableSlots", {
-  //     minAvailableSlots
-  //   });
-  // }
 
   const flights = await queryBuilder.getMany();
 

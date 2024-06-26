@@ -23,7 +23,7 @@ export class FlightEntity extends BaseEntity {
     price: number;
 
     @Column()
-    available_slots: number;
+    availableSlot: number;
 
     @OneToMany(() => ReservationEntity, (reservation) => reservation.flight)
     reservations: ReservationEntity[];

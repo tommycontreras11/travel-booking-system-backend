@@ -24,7 +24,7 @@ export class HotelEntity extends BaseEntity {
     pricePerNight: number;
 
     @Column()
-    available_slots: number;  
+    availableSlot: number;  
 
     @ManyToOne(() => CountryEntity, (country) => country.hotels)
     @JoinColumn({ name: 'countryId', referencedColumnName: 'id' })

@@ -17,7 +17,7 @@ export class ActivityEntity extends BaseEntity {
     description: string;
   
     @Column()
-    available_slots: number;  
+    availableSlot: number;  
 
     @OneToMany(() => ReservationEntity, (reservation) => reservation.activity)
     reservations: ReservationEntity[];

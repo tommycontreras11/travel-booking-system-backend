@@ -17,7 +17,7 @@ export const getOneFlightController = async (req: Request, res: Response) => {
         from: flight.from,
         to: flight.to,
         price: flight.price,
-        available_slots: flight.available_slots
+        availableSlot: flight.availableSlot
       }
 
       return res.json(data)
