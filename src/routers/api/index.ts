@@ -7,6 +7,8 @@ import userRouter from './user'
 import flightRouter from './flight'
 import reservationRouter from './reservation'
 import paymentRouter from './payment'
+import activityRouter from './activity'
+import hotelRouter from './hotel'
 
 const router = Router()
 
@@ -29,5 +31,7 @@ router.use('/users', userRouter);
 router.use('/flights', flightRouter);
 router.use('/reservations', reservationRouter);
 router.use('/payments', paymentRouter);
+router.use('/activities', activityRouter);
+router.use('/hotels', hotelRouter);
 
 export default router
