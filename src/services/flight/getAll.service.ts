@@ -10,7 +10,7 @@ export const getAllFlightService = async (options: {
 
   let queryBuilder = FlightEntity.createQueryBuilder("flight");
 
-  if (arrivalDate && departureDate && quantity) {
+  if (arrivalDate && departureDate) {
     queryBuilder = queryBuilder
       .where(
         "flight.arrivalDateTime BETWEEN :startArrivalDate AND :endArrivalDate",
@@ -30,9 +30,12 @@ export const getAllFlightService = async (options: {
           ),
         }
       )
-      .andWhere("flight.available_slots >= :quantity", {
-        quantity,
-      });
+  }
+
+  if(quantity) {
+    queryBuilder = queryBuilder.andWhere("flight.availableSlot >= :quantity", {
+      quantity,
+    });
   }
 
   const flights = await queryBuilder.getMany();

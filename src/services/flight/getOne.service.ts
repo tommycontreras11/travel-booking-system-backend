@@ -6,7 +6,7 @@ export async function getOneFlightService(
   options: FindOneOptions<FlightEntity>
 ) {
   const flights = await FlightEntity.findOne(options).catch((e) => {
-    console.log("getAllFlightService.FlightEntity.find: ", e);
+    console.log("getAllFlightService.FlightEntity.findOne: ", e);
   });
 
   if (!flights)
