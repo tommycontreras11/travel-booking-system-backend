@@ -9,6 +9,7 @@ import reservationRouter from './reservation'
 import paymentRouter from './payment'
 import activityRouter from './activity'
 import hotelRouter from './hotel'
+import testimonialRouter from './testimonial'
 
 const router = Router()
 
@@ -33,5 +34,6 @@ router.use('/reservations', reservationRouter);
 router.use('/payments', paymentRouter);
 router.use('/activities', activityRouter);
 router.use('/hotels', hotelRouter);
+router.use('/testimonials', testimonialRouter);
 
 export default router
